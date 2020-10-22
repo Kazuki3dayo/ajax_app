@@ -1,8 +1,12 @@
 <h1>AjaxApp</h1>
 <%= form_with url: "/posts", method: :post, id: "form" do |form| %>
-  <%= form.text_field :content%>
-  <%= form.submit '投稿する', id: "submit" %>
+  <%= form.text_field :content , id: "content" %> <!--入力された値をmemo.jsの変数formTextに渡す-->
+  <%= form.submit '投稿する' , id: "submit" %>
 <% end %>
+
+<div id="list">
+</div>
+
 <% @posts.each do |post| %>
   <div class="post" data-id=<%= post.id %> data-check=<%= post.checked %>>
     <div class="post-date">
